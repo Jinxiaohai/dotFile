@@ -1,5 +1,8 @@
 #===========alias=============
 alias e='emacs -nw'
+alias ls='ls -h --color'
+alias rm='rm -rf'
+alias cp='cp -r'
 export QT_IM_MODULE=ibus
 alias cmake='cmake -D CMAKE_C_COMPILER=/opt/gcc/install/bin/gcc -D CMAKE_CXX_COMPILER=/opt/gcc/install/bin/g++'
 
@@ -39,6 +42,7 @@ export PKG_CONFIG_PATH=$FFMPEGSYS/lib/pkgconfig:$PKG_CONFIG_PATH
 #=========python3=============
 export PYTHON3SYS=/opt/python/install
 export PATH=$PYTHON3SYS/bin:$PATH
+export PATH=/home/xiaohai/.local/bin:$PATH
 export PYTHON_LIBRARIES=$PYTHON3SYS/lib:$PYTHON_LIBRARIES
 export PYTHON_INCLUDE_DIRS=$PYTHON3SYS/include:$PYTHON_INCLUDE_DIRS
 export LD_LIBRARY_PATH=$PYTHON3SYS/lib:$LD_LIBRARY_PATH
@@ -63,8 +67,10 @@ export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$ROOTSYS/include:$CPLUS_INCLUDE_PATH
 
 #===========eclipse===========
-export ECLIPSESYS=/opt/eclipse/install
+export ECLIPSESYS=/home/xiaohai/Software/eclipse/install
 export PATH=$ECLIPSESYS/eclipse:$PATH
+# export ECLIPSESYS=/opt/eclipse/install
+# export PATH=$ECLIPSESYS/eclipse:$PATH
 
 #===========texlive===========
 export TEXLIVESYS=/opt/texlive/install
@@ -72,14 +78,16 @@ export PATH=$TEXLIVESYS/2017/bin/x86_64-linux/:$PATH
 export MANPATH=$TEXLIVESYS/2017/texmf-dist/doc/man:$MANPATH
 export INFOPATH=$TEXLIVESYS/2017/texmf-dist/doc/info:$INFOPATH
 
-#==========texstudio==========
-
-#============clang=============
-export CLANGSYS=/opt/llvm/install
-export PATH=$CLANGSYS/bin:$PATH
-export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
+# #============clang=============
+# export CLANGSYS=/opt/llvm/install
+# export PATH=$CLANGSYS/bin:$PATH
+# export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
+# export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
 
 #============nodejs==========
 export NODEJSSYS=/opt/nodejs/install
 export PATH=$NODEJSSYS/bin:$PATH
+
+#========understand==========
+export UNDERSTANDSYS=/opt/understand/install
+export PATH=$UNDERSTANDSYS/bin/linux64:$PATH
