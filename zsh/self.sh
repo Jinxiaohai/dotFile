@@ -15,6 +15,7 @@ export GCCSYS=/opt/gcc/install
 export PATH=$GCCSYS/bin:$PATH
 export LD_LIBRARY_PATH=$GCCSYS/lib64:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$GCCSYS/include:$CPLUS_INCLUDE_PATH
 
 #==========qt=================
 export QTSYS=/opt/qt/install
@@ -42,7 +43,6 @@ export PKG_CONFIG_PATH=$FFMPEGSYS/lib/pkgconfig:$PKG_CONFIG_PATH
 #=========python3=============
 export PYTHON3SYS=/opt/python/install
 export PATH=$PYTHON3SYS/bin:$PATH
-export PATH=/home/xiaohai/.local/bin:$PATH
 export PYTHON_LIBRARIES=$PYTHON3SYS/lib:$PYTHON_LIBRARIES
 export PYTHON_INCLUDE_DIRS=$PYTHON3SYS/include:$PYTHON_INCLUDE_DIRS
 export LD_LIBRARY_PATH=$PYTHON3SYS/lib:$LD_LIBRARY_PATH
@@ -91,3 +91,6 @@ export PATH=$NODEJSSYS/bin:$PATH
 #========understand==========
 export UNDERSTANDSYS=/opt/understand/install
 export PATH=$UNDERSTANDSYS/bin/linux64:$PATH
+
+#============f2c===============
+export PATH=/opt/f2cpp/install:$PATH
