@@ -3,7 +3,7 @@ alias e='emacs -nw'
 alias ls='ls -h --color'
 alias rm='rm -rf'
 alias cp='cp -r'
-export QT_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
 alias cmake='cmake -D CMAKE_C_COMPILER=/opt/gcc/install/bin/gcc -D CMAKE_CXX_COMPILER=/opt/gcc/install/bin/g++'
 
 #===========emacs=============
@@ -78,11 +78,11 @@ export PATH=$TEXLIVESYS/2017/bin/x86_64-linux/:$PATH
 export MANPATH=$TEXLIVESYS/2017/texmf-dist/doc/man:$MANPATH
 export INFOPATH=$TEXLIVESYS/2017/texmf-dist/doc/info:$INFOPATH
 
-# #============clang=============
-# export CLANGSYS=/opt/llvm/install
-# export PATH=$CLANGSYS/bin:$PATH
-# export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
-# export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
+#============clang=============
+export CLANGSYS=/opt/llvm/install
+export PATH=$CLANGSYS/bin:$PATH
+export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
 
 #============nodejs==========
 export NODEJSSYS=/opt/nodejs/install
@@ -94,3 +94,30 @@ export PATH=$UNDERSTANDSYS/bin/linux64:$PATH
 
 #============f2c===============
 export PATH=/opt/f2cpp/install:$PATH
+
+#===========self===============
+export PATH=/opt/self/install:$PATH
+export PATH=/opt/self/install/bin:$PATH
+
+#==============ocr================
+export LEPTONICASYS=/opt/leptonica/install
+export PATH=$LEPTONICASYS/bin:$PATH
+export LD_LIBRARY_PATH=$LEPTONICASYS/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$LEPTONICASYS/lib/pkgconfig:$PKG_CONFIG_PATH
+
+export TESSERACTSYS=/opt/ocr/install
+export PATH=$TESSERACTSYS/bin:$PATH
+export LD_LIBRARY_PATH=$TESSERACTSYS/lib:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$TESSERACTSYS/include:$CPLUS_INCLUDE_PATH
+
+#============wps==============
+export WPSSYS=/opt/wps/install
+export PATH=$WPSSYS:$PATH
+
+#=====yasm required by MPlayer=======
+export YASMSYS=/opt/yasm/install
+export PATH=$YASMSYS/bin:$PATH
+
+#==============MPlayer================
+export MPLAYERSYS=/opt/MPlayer/install
+export PATH=$MPLAYERSYS/bin:$PATH
