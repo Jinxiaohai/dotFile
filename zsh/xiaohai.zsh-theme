@@ -22,7 +22,8 @@ local white_bold=$fg_bold[white]
 
 local highlight_bg=$bg[red]
 
-local zeta='>>>'
+local zeta='▄︻┻═┳一'
+# local zeta='>>>'
 
 # was added by xiaohai (begin)
 local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
@@ -100,22 +101,26 @@ function get_space {
 # Prompt: # USER@MACHINE: DIRECTORY <BRANCH [STATUS]> --- (TIME_STAMP)
 # > command
 function print_prompt_head {
+    print -rP ""
     local left_prompt="\
-%{$blue%}# \
+%{$cyan%}๑•ิ.•ั๑ \
 %{$green_bold%}$(get_usr_name)\
 %{$blue%} @ \
-%{$cyan_bold%}$(get_box_name) in \
+%{$cyan_bold%}$(get_box_name) \
+%{$red%}in \
 %{$yellow_bold%}$(get_current_dir)%{$reset_color%}\
 $(get_git_prompt) "
     local right_prompt="%{$blue%}($(get_time_stamp))%{$reset_color%} "
-    print -rP "$left_prompt$(get_space $left_prompt $right_prompt)$right_prompt"
+    print -rP "$left_prompt$right_prompt"
 }
+
+# print -rP "$left_prompt$(get_space $left_prompt $right_prompt)$right_prompt"
 
 function get_prompt_indicator {
     if [[ $? -eq 0 ]]; then
-        echo "%{$magenta_bold%}$zeta %{$reset_color%}"
-    else
         echo "%{$red_bold%}$zeta %{$reset_color%}"
+    else
+        echo "%{$yellow_bold%}$zeta %{$reset_color%}"
     fi
 }
 
@@ -124,4 +129,4 @@ add-zsh-hook precmd print_prompt_head
 setopt prompt_subst
 
 PROMPT='$(get_prompt_indicator)'
-RPROMPT='$(git_prompt_short_sha) '
+RPROMPT='$(git_prompt_short_sha)'
