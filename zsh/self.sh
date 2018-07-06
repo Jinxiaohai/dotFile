@@ -78,11 +78,11 @@ export PATH=$TEXLIVESYS/2017/bin/x86_64-linux/:$PATH
 export MANPATH=$TEXLIVESYS/2017/texmf-dist/doc/man:$MANPATH
 export INFOPATH=$TEXLIVESYS/2017/texmf-dist/doc/info:$INFOPATH
 
-#============clang=============
-export CLANGSYS=/opt/llvm/install
-export PATH=$CLANGSYS/bin:$PATH
-export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
+# #============clang=============
+# export CLANGSYS=/opt/llvm/install
+# export PATH=$CLANGSYS/bin:$PATH
+# export LD_LIBRARY_PATH=$CLANGSYS/lib:$LD_LIBRARY_PATH
+# export CPLUS_INCLUDE_PATH=$GCCSYS/include/c++/7.3.0:$CPLUS_INCLUDE_PATH
 
 #============nodejs==========
 export NODEJSSYS=/opt/nodejs/install
@@ -121,3 +121,34 @@ export PATH=$YASMSYS/bin:$PATH
 #==============MPlayer================
 export MPLAYERSYS=/opt/MPlayer/install
 export PATH=$MPLAYERSYS/bin:$PATH
+
+
+#==============htop==================
+export HTOPSYS=/opt/htop/install
+export PATH=$HTOPSYS/bin:$PATH
+
+#=============progress===============
+export PROGRESSSYS=/opt/progress/install
+export PATH=$PROGRESSSYS/bin:$PATH
+
+#==============vmware=================
+export VMWARESYS=/opt/vmware/install
+export PATH=$VMWARESYS/bin:$PATH
+export LD_LIBRARY_PATH=$VMWARESYS/lib:$LD_LIBRARY_PATH
+
+#==============pandoc================
+export PANDOCSYS=/opt/pandoc/install
+export PATH=$PANDOCSYS/bin:$PATH
+
+#===============self=================
+export SELFSYS=/home/xiaohai/Github/learnQT/self/install
+export PATH=$SELFSYS/bin:$PATH
+
+#==============doxygen===============
+export DOXYGENSYS=/opt/doxygen/install
+export PATH=$DOXYGENSYS/bin:$PATH
+
+#=============graphviz===============
+export GRAPHVIZSYS=/opt/graphviz/install
+export PATH=$GRAPHVIZSYS/bin:$PATH
+export LD_LIBRARY_PATH=$GRAPHVIZSYS/lib:$LD_LIBRARY_PATH
