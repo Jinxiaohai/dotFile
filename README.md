@@ -14,6 +14,28 @@ EMACS, 即Editor MACroS的缩写，最初由Richard Stallman于1975年在MIT协�
 
 * Tex的配套插件**auctex**
 
+* 头文件补全的**company-c-header**
+
+* 补全成对出现的**autopair**
+
+* 写doxygen文档的**doxymacs**
+
+* ido模式的扩展**ido-vertical-mode**
+
+* 标出光标作用域的**indent-guide**
+
+* 写markdown的**markdown-mode**
+
+* 不同层次的括号不同显示不同颜色的**rainbow-delimiters**
+
+* 便于多文档的**tabbar**
+
+* 模板化插件**yasnippet**
+
+* 颜色主题**molokai-theme**
+
+* M-x的增强器**smex**
+
 
 ## Qt
 
