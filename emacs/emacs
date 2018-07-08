@@ -1,27 +1,14 @@
-;; ;;------语言环境字符集设置结束------------
+;;------语言环境字符集设置结束------------
 (set-language-environment 'utf-8)
-;; (set-keyboard-coding-system 'utf-8)
-;; (set-clipboard-coding-system 'utf-8)
-;; (set-terminal-coding-system 'utf-8)
-;; (set-buffer-file-coding-system 'utf-8)
-;; (set-default-coding-systems 'utf-8)
-;; (set-selection-coding-system 'utf-8)
-;; (modify-coding-system-alist 'process "*" 'utf-8)
-;; (setq default-process-coding-system '(utf-8 . utf-8))
-;; (setq-default pathname-coding-system 'utf-8)
-;; (set-file-name-coding-system 'utf-8)
-;; (setq ansi-color-for-comint-mode t)
-;; ;;------语言环境字符集设置结束------------
 
 ;;缩进
 (setq tex-basic-offset 4)
 (setq latex-basic-offset 4)
 (setq php-basic-offset 4)
 
-;; ;;去行尾空格
+;;去行尾空格
 ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;窗口界面设置
 ;;取消滚动栏
 (set-scroll-bar-mode nil)
 ;;取消工具栏
@@ -34,12 +21,8 @@
 	(right-fringe)
 	(left-fringe)))
 
-;; ;;显示时间设置
+;;显示时间设置
 (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
-;; (setq display-time-24hr-format t);;时间使用24小时制
-;; (setq display-time-day-and-date t);;时间显示包括日期和具体时间
-;; (setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
-;; (setq display-time-interval 10);;时间的变化频率，单位多少来着？
 
 ;;设置打开文件的缺省路径
 (setq default-directory "/home/jinxiaohai")
@@ -70,7 +53,6 @@
 
 ;;把 fill-column 设为 60. 这样的文字更好读
 (setq default-fill-column 300)
-;; (setq-default indent-tabs-mode nil)
 
 ;;tab键为8个字符宽度
 (setq default-tab-width 8)
@@ -104,10 +86,10 @@
 ;;在标题栏显示buffer的名字，而不是 emacs@wangyin.com 这样没用的提示。
 (setq frame-title-format "emacs@%b")
 
-;; 在行首 C-k 时，同时删除该行。
+;;在行首 C-k 时，同时删除该行。
 (setq-default kill-whole-line t)
 
-;; 设定不产生备份文件
+;;设定不产生备份文件
 (setq make-backup-files nil)
 
 ;;自动保存模式
@@ -119,20 +101,13 @@
 ;;允许屏幕右移
 (put 'scroll-right 'disabled nil)
 
-;; ;;把这些缺省禁用的功能打开。
-;; (put 'set-goal-column 'disabled nil)
-;; (put 'narrow-to-region 'disabled nil)
-;; (put 'upcase-region 'disabled nil)
-;; (put 'downcase-region 'disabled nil)
-;; (put 'LaTeX-hide-environment 'disabled nil)
 
-;; ;;允许emacs和外部其他程序的粘贴
+;;允许emacs和外部其他程序的粘贴
 ;; (setq x-select-enable-clipboard t)
 
 ;;设置有用的个人信息,这在很多地方有用。
 (setq user-full-name "jinxiaohai")
-;;(setq user-mail-address "jinxiaohai@sinap.ac.cn")
-(setq user-mail-address "jinxiaohaijin@outlook.com")
+(setq user-mail-address "xiaohaijin@outlook.com")
 
 ;;Non-nil if Transient-Mark mode is enabled.
 (setq-default transient-mark-mode t)
@@ -178,27 +153,12 @@
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'f90-mode-hook 'hs-minor-mode)
 
-;; ;;能把一个代码块缩起来，需要的时候再展开
-;; ;; C-c @ C-M-s 现实所有的代码
-;; ;; C-c @ C-M-h 折叠所有的代码
-;; ;; C-c @ C-s   显示当前代码区
-;; ;; C-c @ C-h   折叠当前代码区
-;; ;; C-c @ C-c   折叠/显示当前代码区
-
-;; ;;启用自动开始新的一行
-;; (add-hook 'cpp-mode-hook
-;;           '(lambda ()
-;;              (cpp-toggle-auto-state)))
-;; ;;--------方便编程操作设置结束--------------
-
-
-;; ;;---------------全屏控制-------------------
-;; (global-set-key [f11] 'my-fullscreen)
-;; (defun my-fullscreen ()
-;;   (interactive)
-;;   (x-send-client-message
-;;    nil 0 nil "_NET_WM_STATE" 32
-;;    '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
+;;能把一个代码块缩起来，需要的时候再展开
+;; C-c @ C-M-s 现实所有的代码
+;; C-c @ C-M-h 折叠所有的代码
+;; C-c @ C-s   显示当前代码区
+;; C-c @ C-h   折叠当前代码区
+;; C-c @ C-c   折叠/显示当前代码区
 
 
 ;;--------------模式的强制转换--------------
@@ -206,70 +166,28 @@
 ;; (add-to-list 'auto-mode-alist '("\\.f\\'" . f90-mode))
 
 
-;; ;;------------------auctex------------------
-;; (load "auctex.el" nil t t)
-;; (load "preview-latex.el" nil t t)
-;; (require 'tex-mik)
+;;------------------auctex------------------
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(require 'tex-mik)
 
-;; (setq TeX-auto-save t)
-;; (setq TeX-parse-self t)
-;; (setq-default TeX-master nil)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
 
-;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-;; (setq reftex-plug-into-AUCTeX t)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
 
-;; (setq TeX-PDF-mode t)
+(setq TeX-PDF-mode t)
 
-;; (require 'tex)
-;; (TeX-global-PDF-mode t)
+(require 'tex)
+(TeX-global-PDF-mode t)
 
-;; (defun latex-help-get-cmd-alist () ;corrected version:
-;;     "Scoop up the commands in the index of the latex info manual.
-;;    The values are saved in `latex-help-cmd-alist' for speed."
-;;     ;; mm, does it contain any cached entries
-;;     (if (not (assoc "\\begin" latex-help-cmd-alist))
-;;         (save-window-excursion
-;;           (setq latex-help-cmd-alist nil)
-;;           (Info-goto-node (concat latex-help-file "Command Index"))
-;;           (end-of-buffer)
-;;           (while (re-search-backward "^\\* \\(.+\\): *\\(.+\\)\\." nil t)
-;;             (setq key (ltxh-buffer-substring (match-beginning 1) (match-end 1)))
-;;             (setq value (ltxh-buffer-substring (match-beginning 2) (match-end 2)))
-;;             (setq latex-help-cmd-alist
-;;                   (cons (cons key value) latex-help-cmd-alist))))
-;;       )
-;;     latex-help-cmd-alist
-;;         )
-
-;; (mapc (lambda (mode)
-;;         (add-hook 'LaTeX-mode-hook mode))
-;;       (list 'auto-fill-mode
-;;             'LaTeX-math-mode
-;;             'turn-on-reftex
-;;             'linum-mode))
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (setq TeX-auto-untabify t     ; remove all tabs before saving
-;;                   TeX-engine 'xetex       ; use xelatex default
-;;                   TeX-show-compilation t) ; display compilation windows
-;;             (TeX-global-PDF-mode t)       ; PDF mode enable, not plain
-;;             (setq TeX-save-query nil)
-;;             (imenu-add-menubar-index)
-;;             (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
-
-;; ;; (custom-set-faces
-;; ;;  ;; custom-set-faces was added by Custom.
-;; ;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;; ;;  ;; Your init file should contain only one such instance.
-;; ;;  ;; If there is more than one, they won't work right.
-;; ;;  '(default ((t (:family "AR PL UMing HK" :foundry "unknown" :slant normal :weight light :height 173 :width normal)))))
-
-
-;; ;;----------------插件yasnippet------------------------
+;;----------------插件yasnippet------------------------
 (add-to-list 'load-path
              "/home/xiaohai/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
@@ -292,34 +210,17 @@
 (defvar company-mode/enable-yas t "Enable yasnippet for all backends")
 
 
-
-;; ;;;;;;;;;;;;;;;;;;;;;基于company的其它插件;;;;;;;;;;;;;;;;;;;;;;
-;; ;;===============company-auctex=================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/company-auctex")
-;; (require 'company-auctex)
-;; (company-auctex-init)
+;;;;;;;;;;;;;;;;;;;;;基于company的其它插件;;;;;;;;;;;;;;;;;;;;;;
+;;===============company-auctex=================
+(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/company-auctex")
+(require 'company-auctex)
+(company-auctex-init)
 
 
 ;;==============company-c-header================
 (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/company-c-headers")
 (require 'company-c-headers)
 (add-to-list 'company-backends 'company-c-headers)
-
-
-;; ;;================cmake=====================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/cmake-ide")
-;; ;; (require 'cmake-ide)
-
-
-;; ;;===================cmake-mode===================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/cmake-mode")
-;; (require 'cmake-mode)
-;; (setq auto-mode-alist
-;;       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
-;; 		("\\.cmake\\'" . cmake-mode))
-;; 	      auto-mode-alist))
-
-
 
 
 ;;=====================tabbar=========================
@@ -331,52 +232,44 @@
 (global-set-key [(meta k)] 'tabbar-backward)
 
 
+;;==================doxymacs================
+(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/doxymacs/lisp")
+(require 'doxymacs)
+(doxymacs-mode)
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
 
-
-
-;; ;;==================doxymacs================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/doxymacs/lisp")
-;; (require 'doxymacs)
-;; (doxymacs-mode)
-;; (add-hook 'c-mode-common-hook 'doxymacs-mode)
-
-;; ;;C++注释高亮
-;; (defun my-doxymacs-font-lock-hook ()
-;;   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
-;;       (doxymacs-font-lock)))
-;; (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
-;; (defconst doxymacs-C++-file-comment-template
-;;   '("////////////////////////////////////////////////////////////////////////" > n
-;;     "/// COPYRIGHT NOTICE" > n
-;;     "/// COPYRIGHT (c) 2017, 金小海" > n
-;;     "/// All rights reserved." > n
-;;     "/// " > n
-;;     "/// " (doxymacs-doxygen-command-char) "file    "
-;;     (if (buffer-file-name)
-;; 	(file-name-nondirectory (buffer-file-name))
-;;       "") > n
-;;       "/// " (doxymacs-doxygen-command-char) "version 1.0" > n
-;;       "/// " (doxymacs-doxygen-command-char) "author  " (user-full-name) (doxymacs-user-mail-address) > n
-;;       "/// " (doxymacs-doxygen-command-char) "date    " (current-time-string) > n
-;;       "/// " > n
-;;       "/// " (doxymacs-doxygen-command-char) "brief   " (p "Brief description of this file: ") > n
-;;       "/// " > n
-;;       "/// 修订说明:最初版本" > n
-;;     "////////////////////////////////////////////////////////////////////////" > n)
-;;   "Default C++-style template for file documentation")
-
-
-
-
-
-;; ;; C-c d ? will look up documentation for the symbol under the point
-;; ;; C-c d r will rescan your doxygen tags file
-;; ;; C-c d f will insert a Doxygen comment for the next function
-;; ;; C-c d i will insert a Doxygen comment for the current file.
-;; ;; C-c d ; will insert a Doxygen comment for a member variable on the current line (like M-;).
-;; ;; C-c d m will insert a blank multi-line Doxygen comment.
-;; ;; C-c d s will insert a blank single-line Doxygen comment.
-;; ;; C-c d @ will insert grouping comments around the current region.
+;;C++注释高亮
+(defun my-doxymacs-font-lock-hook ()
+  (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
+      (doxymacs-font-lock)))
+(add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
+(defconst doxymacs-C++-file-comment-template
+  '("////////////////////////////////////////////////////////////////////////" > n
+    "/// COPYRIGHT NOTICE" > n
+    "/// COPYRIGHT (c) 2016, 金小海" > n
+    "/// All rights reserved." > n
+    "/// " > n
+    "/// " (doxymacs-doxygen-command-char) "file    "
+    (if (buffer-file-name)
+	(file-name-nondirectory (buffer-file-name))
+      "") > n
+      "/// " (doxymacs-doxygen-command-char) "version 1.0" > n
+      "/// " (doxymacs-doxygen-command-char) "author  " (user-full-name) (doxymacs-user-mail-address) > n
+      "/// " (doxymacs-doxygen-command-char) "date    " (current-time-string) > n
+      "/// " > n
+      "/// " (doxymacs-doxygen-command-char) "brief   " (p "Brief description of this file: ") > n
+      "/// " > n
+      "/// 修订说明:最初版本" > n
+    "////////////////////////////////////////////////////////////////////////" > n)
+  "Default C++-style template for file documentation")
+;; C-c d ? will look up documentation for the symbol under the point
+;; C-c d r will rescan your doxygen tags file
+;; C-c d f will insert a Doxygen comment for the next function
+;; C-c d i will insert a Doxygen comment for the current file.
+;; C-c d ; will insert a Doxygen comment for a member variable on the current line (like M-;).
+;; C-c d m will insert a blank multi-line Doxygen comment.
+;; C-c d s will insert a blank single-line Doxygen comment.
+;; C-c d @ will insert grouping comments around the current region.
 
 
 ;;===================autopair=====================
@@ -408,51 +301,6 @@
            (smex-initialize))
            (global-set-key [(shift meta x)]'smex-major-mode-commands)
            (smex-major-mode-commands)))
-
-
-;; ;;=================window-numbering================
-;; ;;使用Alt加数字1或者2或者3...,跳转到相应的窗口。
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/window-numbering")
-;; (require 'window-numbering)
-;; (window-numbering-mode 1)
-
-
-;; ;;==================elpy=====================
-;; ;;加载elpy
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("elpy" . "https://jorgenschaefer.github.io/packages/"))
-;; ;;使用
-;; (package-initialize)
-;; (elpy-enable)
-;; (setq elpy-rpc-python-command "python3")
-
-
-;; ;;================多个repositories===========
-;; (setq packager-archives
-;;       '(("gnu" . "http://elpa.gnu.org.packages")
-;;         ("marmadade" . "http://marmadade-repo.org/packages")
-;;         ("melpa" . "https://melpa.org/packages")))
-
-
-;; ;;=================slime========================
-;; ;;加载slime
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/slime-master")
-;; (require 'slime-autoloads)
-
-
-;; ;; ;;=================SBCL========================
-;; ;; ;;加载SBCL
-;; ;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
-;; ;; ;;让slime变得更好看，比如把sbcl的*变成CL-USER>
-;; ;; (slime-setup '(slime-fancy))
-;; ;; ;;更改优先级
-;; ;; ;; (eval-after-load "slime"
-;; ;; ;;   '(progn
-;; ;; ;;      (add-to-list 'load-path "/usr/local/bin/sbcl/contrib")
-;; ;; ;;      (slime-setup '(slime-fancy slime-banner))
-;; ;; ;;      (setq slime-complete-symbol*-fancy t)
-;; ;; ;;      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)))
 
 
 ;;================rainbow-delimiters==================
@@ -492,11 +340,37 @@
 (ido-vertical-mode t)
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
+
 ;;===============theme================
 (add-to-list 'custom-theme-load-path "/home/xiaohai/.emacs.d/plugins/molokai-theme")
 (setq molokai-theme-kit t)
 
 
+
+
+;; ;;==================elpy=====================
+;; ;;加载elpy
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("elpy" . "https://jorgenschaefer.github.io/packages/"))
+;; ;;使用
+;; (package-initialize)
+;; (elpy-enable)
+;; (setq elpy-rpc-python-command "python3")
+
+
+;; ;;================多个repositories===========
+;; (setq packager-archives
+;;       '(("gnu" . "http://elpa.gnu.org.packages")
+;;         ("marmadade" . "http://marmadade-repo.org/packages")
+;;         ("melpa" . "https://melpa.org/packages")))
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; ;;================neotree================
 ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/neotree")
@@ -537,6 +411,7 @@
 ;;   (define-key c++-mode-map "\C-crf"  'root-execute-file))
 ;; (add-hook 'c++-mode-hook 'root-c++-mode-hook)
 
+
 ;; ;;===============emms===============
 ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/emms/lisp")
 ;; (require 'emms-setup)
@@ -544,380 +419,218 @@
 ;; (emms-default-players)
 
 
+;; ;;==================web-mode=====================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;; (setq web-mode-engines-alist
+;;       '(("php"    . "\\.phtml\\'")
+;;         ("blade"  . "\\.blade\\."))
+;;       )
+;; (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("/some/react/path/.*\\.js[x]?\\'" . web-mode))
+
+;; (setq web-mode-content-types-alist
+;;       '(("json" . "/some/path/.*\\.api\\'")
+;;         ("xml"  . "/other/path/.*\\.api\\'")
+;;         ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
+;; (setq web-mode-markup-indent-offset 2)
+;; (setq web-mode-css-indent-offset 2)
+;; (setq web-mode-code-indent-offset 2)
+;; (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+;; (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
+;; (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+;; (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
+;; (setq web-mode-style-padding 1)
+;; (setq web-mode-script-padding 1)
+;; (setq web-mode-block-padding 0)
+;; (setq web-mode-comment-style 2)
+;; (setq web-mode-extra-auto-pairs
+;;       '(("erb"  . (("beg" "end")))
+;;         ("php"  . (("beg" "end")
+;;                    ("beg" "end")))
+;;         ))
+;; (setq web-mode-enable-auto-pairing t)
+;; (setq web-mode-enable-css-colorization t)
+
+
+
+;; ;;=================web-mode==================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+
+;; ;;===================multi-mode=====================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/multi-mode")
+;; (require 'multi-mode)
+
+;; ;;=====================mmm-mode=======================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mmm-mode")
+;; (require 'mmm-mode)
+
+;; ;;====================mumamo-mode====================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mumamo-mode")
+;; (require 'multi-mode)
+
+
+;; ;;======================html======================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/html-helper-mode")
+;; (require 'html-helper-mode)
+;; (setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
+
+
+;; ;;=======================markdown-mode========================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/markdown-mode")
+;; (require 'markdown-mode)
+
+
+;; (setq html-helper-do-write-file-hooks t)
+;; (setq html-helper-build-new-buffer t)
+;; (setq html-helper-basic-offset 2)
+;; (setq html-helper-address-string
+;;       "<a href=\"http://www.santafe.edu/~nelson/\">Nelson Minar &lt;nelson@santafe.edu&gt;</a>")
+
+
+;; ;;======================jde=======================
+;;jde的安装
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/jdee-2.4.1/lisp")
+;; (load "jde")
+
+
+;; ;;======================java======================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master")
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories
+;;              "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master/dict")
+;; (ac-config-default)
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/fuzzy-el-master")
+;; (setq ac-fuzzy-enable t)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;; ;; ;;==================web-mode=====================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
-;; ;; (require 'web-mode)
-;; ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-;; ;; (setq web-mode-engines-alist
-;; ;;       '(("php"    . "\\.phtml\\'")
-;; ;;         ("blade"  . "\\.blade\\."))
-;; ;;       )
-;; ;; (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("/some/react/path/.*\\.js[x]?\\'" . web-mode))
-
-;; ;; (setq web-mode-content-types-alist
-;; ;;       '(("json" . "/some/path/.*\\.api\\'")
-;; ;;         ("xml"  . "/other/path/.*\\.api\\'")
-;; ;;         ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
-;; ;; (setq web-mode-markup-indent-offset 2)
-;; ;; (setq web-mode-css-indent-offset 2)
-;; ;; (setq web-mode-code-indent-offset 2)
-;; ;; (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
-;; ;; (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
-;; ;; (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-;; ;; (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
-;; ;; (setq web-mode-style-padding 1)
-;; ;; (setq web-mode-script-padding 1)
-;; ;; (setq web-mode-block-padding 0)
-;; ;; (setq web-mode-comment-style 2)
-;; ;; (setq web-mode-extra-auto-pairs
-;; ;;       '(("erb"  . (("beg" "end")))
-;; ;;         ("php"  . (("beg" "end")
-;; ;;                    ("beg" "end")))
-;; ;;         ))
-;; ;; (setq web-mode-enable-auto-pairing t)
-;; ;; (setq web-mode-enable-css-colorization t)
-
-
-
-;; ;; ;;=================web-mode==================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
-;; ;; (require 'web-mode)
-;; ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-
-;; ;; ;;===================multi-mode=====================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/multi-mode")
-;; ;; (require 'multi-mode)
-
-;; ;; ;;=====================mmm-mode=======================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mmm-mode")
-;; ;; (require 'mmm-mode)
-
-;; ;; ;;====================mumamo-mode====================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mumamo-mode")
-;; ;; (require 'multi-mode)
-
-
-;; ;; ;;======================html======================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/html-helper-mode")
-;; ;; (require 'html-helper-mode)
-;; ;; (setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
-;; ;; (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
-
-
-;; ;; ;;=======================markdown-mode========================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/markdown-mode")
-;; ;; (require 'markdown-mode)
-
-
-;; ;; ;; (setq html-helper-do-write-file-hooks t)
-;; ;; ;; (setq html-helper-build-new-buffer t)
-;; ;; ;; (setq html-helper-basic-offset 2)
-;; ;; ;; (setq html-helper-address-string
-;; ;; ;;       "<a href=\"http://www.santafe.edu/~nelson/\">Nelson Minar &lt;nelson@santafe.edu&gt;</a>")
-
-
-
-
-
-
-;; ;; ;;======================jde=======================
-;; ;; ;;jde的安装
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/jdee-2.4.1/lisp")
-;; ;; ;; (load "jde")
-
-
-;; ;; ;; ;;======================java======================
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master")
-;; ;; ;; (require 'auto-complete-config)
-;; ;; ;; (add-to-list 'ac-dictionary-directories
-;; ;; ;;              "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master/dict")
-;; ;; ;; (ac-config-default)
-
-
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/fuzzy-el-master")
-;; ;; ;; (setq ac-fuzzy-enable t)
-
-
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/popup-el-master")
-
-
-
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/pos-tip")
-;; ;; ;; (require 'pos-tip)
-;; ;; ;; (setq ac-quick-help-prefer-pos-tip t) ;;default is t
-
-;; ;; ;; ;;quick-help
-;; ;; ;; (setq ac-use-quick-help t)
-;; ;; ;; (setq ac-quick-help-delay 1.0)
-;; ;; ;; ;;设置tab键
-;; ;; ;; (setq ac-dwim t)
-
-
-;; ;; ;;======================ecb========================
-;; ;; ;;(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ecb")
-;; ;; ;;(require 'ecb)
-
-
-
-
-;; ;; ;;==================powerline===================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/powerline")
-;; ;; (require 'powerline)
-
-
-;; ;; ;;=====================eshell===================
-;; ;; (global-set-key [f4] 'eshell)
-
-
-;; ;; ;;===================session====================
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/session")
-;; ;; ;; (require 'session)
-
-
-;; ;; ;;==================expand-region===============
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/expand-region")
-;; ;; ;; (require 'cc-mode-expansions)
-
-;; ;; ;;==================popup=======================
-;; ;; ;;这是yasnippet的插件的子插件
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/popup-el-master")
-;; ;; (require 'popup)
-
-
-;; ;; ;;==================Ace Jump Mode==============
-;; ;; ;; ace jump mode major function
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ace_jump_mode/")
-;; ;; (autoload
-;; ;;   'ace-jump-mode
-;; ;;   "ace-jump-mode"
-;; ;;   "Emacs quick move minor mode"
-;; ;;   t)
-;; ;; ;; you can select the key you prefer to
-;; ;; (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-;; ;; ;;C-c 再加空格键进行启动
-
-
-;; ;; ;;===================flymake====================
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/flymake")
-;; ;; ;; (require 'flymake)
-
-;; ;; ;;==================Org-mode====================
-;; ;; ;;为TODO定义不同的状态
-;; ;; (setq org-todo-keywords
-;; ;;       '((sequence "TODO" "|" "DONE")))
-
-;; ;; ;;跟踪一个特定项目的完成时间
-;; ;; (setq org-log-done 'time)
-
-
-;; ;; ;; ;;================evil================
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/evil")
-;; ;; ;; (require 'evil)
-;; ;; ;; (evil-mode 1)
-;; ;; ;; (setq evil-default-state 'emacs)
-
-
-;; ;; ;;===============slime================
-;; ;; ;; (setq inferior-lisp-program "/usr/local/lib/sbcl") ; your Lisp system
-;; ;; ;; (add-to-list 'load-path "/home/jinxiaohai/SoftWear/lisp/slime-master/")  ; your SLIME directory
-;; ;; ;; ;;(require 'slime)
-;; ;; ;; (require 'slime-autoloads)
-;; ;; ;; (slime-setup '(slime-fancy))
-
-
-;; ;; ;;===============cscope==============
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/cscope/contrib/xcscope")
-;; ;; (require 'xcscope)
-;; ;; ;;这里以核原码为例，介绍Cscope的基本用法。
-;; ;; ;;首先，在源码根目录下，如～/kernerl/linux-2.6.29.3,利用cscope-indexer脚本生成文件
-;; ;; ;;列表和数据库，方法是执行                cscope-indexer -r
-;; ;; ;;其中-r参数表示递归检索子目录，文件列表和数据库的默认文件名分别为cscope.files和
-;; ;; ;;cscope.out,可以使用-i和-f参数进行修改。
-;; ;; ;;然后用emacs打开init/main.c, ctrl+s搜索sched_init函数，将光标停在函数名上，按ctrl+c s d
-;; ;; ;;进行查找!!!
-;; ;; ;; C-c s s   Find symbol
-;; ;; ;; C-c s d   Find global definition
-;; ;; ;; C-c s g   Find global definition(alternate binding)
-;; ;; ;; C-c s G   Find global definition without prompting
-;; ;; ;; C-c s c   Find functions calling a function
-;; ;; ;; C-c s C   Find called functions
-;; ;; ;; C-c s t   Find test string
-;; ;; ;; C-c s e   Find egrep pattern
-;; ;; ;; C-c s f   Find a file
-;; ;; ;; C-c s i   Find files #include a file
-;; ;; ;;在搜索出来的结果中可以通过n和p两个键跳转
-;; ;; ;; n    下一个symbol
-;; ;; ;; p    上一个symbol
-;; ;; ;; N    下一个文件
-;; ;; ;; P    上一个文件
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/popup-el-master")
+
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/pos-tip")
+;; (require 'pos-tip)
+;; (setq ac-quick-help-prefer-pos-tip t) ;;default is t
+
+;; ;;quick-help
+;; (setq ac-use-quick-help t)
+;; (setq ac-quick-help-delay 1.0)
+;; ;;设置tab键
+;; (setq ac-dwim t)
+
+
+;; ;;======================ecb========================
+;;(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ecb")
+;;(require 'ecb)
+
+
+;; ;;==================powerline===================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/powerline")
+;; (require 'powerline)
+
+
+;; ;;=====================eshell===================
+;; (global-set-key [f4] 'eshell)
+
+
+;; ;;===================session====================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/session")
+;; (require 'session)
+
+
+;; ;;==================expand-region===============
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/expand-region")
+;; (require 'cc-mode-expansions)
+
+;; ;;==================popup=======================
+;; ;;这是yasnippet的插件的子插件
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/popup-el-master")
+;; (require 'popup)
+
+
+;; ;;==================Ace Jump Mode==============
+;; ;; ace jump mode major function
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ace_jump_mode/")
+;; (autoload
+;;   'ace-jump-mode
+;;   "ace-jump-mode"
+;;   "Emacs quick move minor mode"
+;;   t)
+;; ;; you can select the key you prefer to
+;; (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;; ;;C-c 再加空格键进行启动
+
+
+;; ;;===================flymake====================
+;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/flymake")
+;; ;; (require 'flymake)
+
+;; ;;==================Org-mode====================
+;; ;;为TODO定义不同的状态
+;; (setq org-todo-keywords
+;;       '((sequence "TODO" "|" "DONE")))
+
+;; ;;跟踪一个特定项目的完成时间
+;; (setq org-log-done 'time)
+
+
+;; ;;================evil================
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/evil")
+;; (require 'evil)
+;; (evil-mode 1)
+;; (setq evil-default-state 'emacs)
+
+
+;; ;;===============slime================
+;; (setq inferior-lisp-program "/usr/local/lib/sbcl") ; your Lisp system
+;; (add-to-list 'load-path "/home/jinxiaohai/SoftWear/lisp/slime-master/")  ; your SLIME directory
+;; ;;(require 'slime)
+;; (require 'slime-autoloads)
+;; (slime-setup '(slime-fancy))
+
+
+;; ;;===============cscope==============
+;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/cscope/contrib/xcscope")
+;; (require 'xcscope)
+;; ;;这里以核原码为例，介绍Cscope的基本用法。
+;; ;;首先，在源码根目录下，如～/kernerl/linux-2.6.29.3,利用cscope-indexer脚本生成文件
+;; ;;列表和数据库，方法是执行                cscope-indexer -r
+;; ;;其中-r参数表示递归检索子目录，文件列表和数据库的默认文件名分别为cscope.files和
+;; ;;cscope.out,可以使用-i和-f参数进行修改。
+;; ;;然后用emacs打开init/main.c, ctrl+s搜索sched_init函数，将光标停在函数名上，按ctrl+c s d
+;; ;;进行查找!!!
+;; ;; C-c s s   Find symbol
+;; ;; C-c s d   Find global definition
+;; ;; C-c s g   Find global definition(alternate binding)
+;; ;; C-c s G   Find global definition without prompting
+;; ;; C-c s c   Find functions calling a function
+;; ;; C-c s C   Find called functions
+;; ;; C-c s t   Find test string
+;; ;; C-c s e   Find egrep pattern
+;; ;; C-c s f   Find a file
+;; ;; C-c s i   Find files #include a file
+;; ;;在搜索出来的结果中可以通过n和p两个键跳转
+;; ;; n    下一个symbol
+;; ;; p    上一个symbol
+;; ;; N    下一个文件
+;; ;; P    上一个文件
 
 
 ;; ;;======================Load gdb-many-window=====================
@@ -933,79 +646,9 @@
 ;; ;; (load-library "multi-gdb-ui.el")
 
 
-;; ;; ;; ;;-----------------内部插件的控制----------------------
-;; ;; ;; ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
-;; ;; ;; ;;                                   global-semanticdb-minor-mode
-;; ;; ;; ;;                                   global-semantic-idle-summary-mode
-;; ;; ;; ;;                                   global-semantic-mru-bookmark-mode))
-;; ;; ;; ;; (semantic-mode 1)
-
-
-
-;; ;; ;;---------------------srecode------------------------
-;; ;; ;;(global-srecode--mode 1)
-
-
-;; ;; ;;------------------------ede-------------------------
-;; ;; (global-ede-mode 1)
-
-
-
-;; ;; ;;-------------emacs cedet插件配置-------------------
-;; ;; (load-file "/home/jinxiaohai/Softwear/emacs/lisp/cedet/cedet.el")
-;; ;; (require 'cedet)
-
-;; ;; ;;;; Helper tools.
-;; ;; (custom-set-variables
-;; ;;  ;; custom-set-variables was added by Custom.
-;; ;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;; ;;  ;; Your init file should contain only one such instance.
-;; ;;  ;; If there is more than one, they won't work right.
-;; ;;  '(column-number-mode t)
-;; ;;  '(display-time-mode t)
-;; ;;  '(font-use-system-font t)
-;; ;;  '(semantic-default-submodes
-;; ;;    (quote
-;; ;;     (global-semantic-decoration-mode global-semantic-idle-completions-mode global-semantic-idle-scheduler-mode global-semanticdb-minor-mode global-semantic-idle-summary-mode global-semantic-mru-bookmark-mode)))
-;; ;;  '(semantic-idle-scheduler-idle-time 3)
-;; ;;  '(send-mail-function (quote mailclient-send-it))
-;; ;;  '(show-paren-mode t))
-
-;; ;; (autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
-;; ;; (autoload 'speedbar-get-focus "speedbar" "Jump to speedbar frame" t)
-
-;; ;; ;;主浮页和speedbar浮页之间的切换快捷键——不用设置，因为系统本身可以使用M-Tab来实现
-
-;; ;; ;;设置speedbar默认出现在左侧
-;; ;; (add-hook 'speedbar-mode-hook
-;; ;;           (lambda ()
-;; ;;             (auto-raise-mode 1)
-;; ;;             (add-to-list 'speedbar-frame-parameters '(top . 0))
-;; ;;             (add-to-list 'speedbar-frame-parameters '(left . 0))
-;; ;;             ))
-
-;; ;;                                         ;显示所有文件
-;; ;; (setq speedbar-show-unknown-files t)
-
-;; ;; ;;设置tags排列顺序为按照出现的先后次序排列
-;; ;; (setq speedbar-tag-hierarchy-method '(speedbar-prefix-group-tag-hierarchy))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("6f11ad991da959fa8de046f7f8271b22d3a97ee7b6eca62c81d5a917790a45d9" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; ;;-----------------内部插件的控制----------------------
+;; ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
+;; ;;                                   global-semanticdb-minor-mode
+;; ;;                                   global-semantic-idle-summary-mode
+;; ;;                                   global-semantic-mru-bookmark-mode))
+;; ;; (semantic-mode 1)
