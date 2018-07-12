@@ -25,7 +25,7 @@
 (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
 
 ;;设置打开文件的缺省路径
-(setq default-directory "/home/jinxiaohai")
+(setq default-directory "/home/xiaohai")
 
 ;;关闭烦人的出错时的提示声
 (setq visible-bell t)
@@ -189,16 +189,16 @@
 
 ;;----------------插件yasnippet------------------------
 (add-to-list 'load-path
-             "/home/xiaohai/.emacs.d/plugins/yasnippet")
+             "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
-(setq yas/root-directory "/home/xiaohai/.emacs.d/snippets")
+(setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
 ;;(setf yas/indent-line 'fixed)
 
 
 ;;------------------company-mode-------------------------
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/company-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/company-mode")
 (autoload 'company-mode "company" nil t)
 (require 'company-clang)
 ;;设置最小的开始补全单词数
@@ -212,19 +212,19 @@
 
 ;;;;;;;;;;;;;;;;;;;;;基于company的其它插件;;;;;;;;;;;;;;;;;;;;;;
 ;;===============company-auctex=================
-(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/company-auctex")
+(add-to-list 'load-path "~/.emacs.d/plugins/company-auctex")
 (require 'company-auctex)
 (company-auctex-init)
 
 
 ;;==============company-c-header================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/company-c-headers")
+(add-to-list 'load-path "~/.emacs.d/plugins/company-c-headers")
 (require 'company-c-headers)
 (add-to-list 'company-backends 'company-c-headers)
 
 
 ;;=====================tabbar=========================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/tabbar")
+(add-to-list 'load-path "~/.emacs.d/plugins/tabbar")
 (require 'tabbar)
 (tabbar-mode 1)
 ;;设置tabbar
@@ -233,7 +233,7 @@
 
 
 ;;==================doxymacs================
-(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/doxymacs/lisp")
+(add-to-list 'load-path "~/.emacs.d/plugins/doxymacs/lisp")
 (require 'doxymacs)
 (doxymacs-mode)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
@@ -273,13 +273,13 @@
 
 
 ;;===================autopair=====================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/autopair/")
+(add-to-list 'load-path "~/.emacs.d/plugins/autopair/")
 (require 'autopair)
 (autopair-global-mode)
 
 
 ;;==================smex========================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/smex")
+(add-to-list 'load-path "~/.emacs.d/plugins/smex")
 (require 'smex)
 (smex-initialize)
 ;;全局键位的绑定。
@@ -304,14 +304,14 @@
 
 
 ;;================rainbow-delimiters==================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/rainbow-delimiters")
+(add-to-list 'load-path "~/.emacs.d/plugins/rainbow-delimiters")
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'LaTeX-mode-hook #'rainbow-delimiters-mode)
 
 
 ;;================markdown-mode====================
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/markdown-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/markdown-mode")
 (autoload 'markdown-mode "markdown-mode"
   "major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -323,7 +323,7 @@
 
 
 ;;==============indent-guide==============
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/indent-guide")
+(add-to-list 'load-path "~/.emacs.d/plugins/indent-guide")
 (require 'indent-guide)
 ;;全局启动
 (indent-guide-global-mode)
@@ -333,7 +333,7 @@
 
 ;;============ido-vertical-mode===========
 ;;这里是直接打开了ido的支持，在emacs23中这个是自带的.
-(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/ido-vertical-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/ido-vertical-mode")
 (require 'ido-vertical-mode)
 (ido-mode t)
 (setq ido-save-directory-list-file nil)
@@ -342,21 +342,26 @@
 
 
 ;;===============theme================
-(add-to-list 'custom-theme-load-path "/home/xiaohai/.emacs.d/plugins/molokai-theme")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/plugins/molokai-theme")
 (setq molokai-theme-kit t)
 
 
 
 
-;; ;;==================elpy=====================
-;; ;;加载elpy
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("elpy" . "https://jorgenschaefer.github.io/packages/"))
-;; ;;使用
-;; (package-initialize)
-;; (elpy-enable)
-;; (setq elpy-rpc-python-command "python3")
+;;==================elpy=====================
+;;加载elpy
+(require 'package)
+(add-to-list 'package-archives
+             '("elpy" . "https://jorgenschaefer.github.io/packages/"))
+;;使用
+(package-initialize)
+(elpy-enable)
+(setq elpy-rpc-python-command "python3")
+
+
+;;================cmake=====================
+(add-to-list 'load-path "~/.emacs.d/plugins/cmake")
+(require 'cmake-mode)
 
 
 ;; ;;================多个repositories===========
@@ -373,14 +378,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; ;;================neotree================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/neotree")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/neotree")
 ;; (require 'neotree)
 ;; (global-set-key [f8] 'neotree-toggle)
 ;; (setq neotree-theme (if (display-grayscale-p) 'icons 'arrow))
 ;; (setq neo-smart-open t)
 
 ;; ;; ;;=============doom-themes===============
-;; (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/doom-theme")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/doom-theme")
 ;; (require 'doom-themes)
 ;; (setq doom-themes-enable-bold t
 ;;       doom-themes-enable-italic t)
@@ -393,7 +398,7 @@
 
 
 ;; ;;=============root-help===============
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/root-help")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/root-help")
 ;; (require 'root-help)
 ;; (defun root-c++-mode-hook ()
 ;;   "Hook for C++ mode - binding ROOT functions"
@@ -413,14 +418,14 @@
 
 
 ;; ;;===============emms===============
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/emms/lisp")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/emms/lisp")
 ;; (require 'emms-setup)
 ;; (emms-standard)
 ;; (emms-default-players)
 
 
 ;; ;;==================web-mode=====================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/web-mode")
 ;; (require 'web-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -464,7 +469,7 @@
 
 
 ;; ;;=================web-mode==================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/web-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/web-mode")
 ;; (require 'web-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -477,27 +482,27 @@
 
 
 ;; ;;===================multi-mode=====================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/multi-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/multi-mode")
 ;; (require 'multi-mode)
 
 ;; ;;=====================mmm-mode=======================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mmm-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/mmm-mode")
 ;; (require 'mmm-mode)
 
 ;; ;;====================mumamo-mode====================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/mumamo-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/mumamo-mode")
 ;; (require 'multi-mode)
 
 
 ;; ;;======================html======================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/html-helper-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/html-helper-mode")
 ;; (require 'html-helper-mode)
 ;; (setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
 ;; (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
 
 
 ;; ;;=======================markdown-mode========================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/markdown-mode")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/markdown-mode")
 ;; (require 'markdown-mode)
 
 
@@ -510,22 +515,22 @@
 
 ;; ;;======================jde=======================
 ;;jde的安装
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/jdee-2.4.1/lisp")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/jdee-2.4.1/lisp")
 ;; (load "jde")
 
 
 ;; ;;======================java======================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/JAVA/auto-complete-master")
 ;; (require 'auto-complete-config)
 ;; (add-to-list 'ac-dictionary-directories
-;;              "/home/jinxiaohai/.emacs.d/plugins/JAVA/auto-complete-master/dict")
+;;              "~/.emacs.d/plugins/JAVA/auto-complete-master/dict")
 ;; (ac-config-default)
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/fuzzy-el-master")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/JAVA/fuzzy-el-master")
 ;; (setq ac-fuzzy-enable t)
 
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/popup-el-master")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/JAVA/popup-el-master")
 
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/JAVA/pos-tip")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/JAVA/pos-tip")
 ;; (require 'pos-tip)
 ;; (setq ac-quick-help-prefer-pos-tip t) ;;default is t
 
@@ -537,12 +542,12 @@
 
 
 ;; ;;======================ecb========================
-;;(add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ecb")
+;;(add-to-list 'load-path "~/.emacs.d/plugins/ecb")
 ;;(require 'ecb)
 
 
 ;; ;;==================powerline===================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/powerline")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/powerline")
 ;; (require 'powerline)
 
 
@@ -551,23 +556,23 @@
 
 
 ;; ;;===================session====================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/session")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/session")
 ;; (require 'session)
 
 
 ;; ;;==================expand-region===============
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/expand-region")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/expand-region")
 ;; (require 'cc-mode-expansions)
 
 ;; ;;==================popup=======================
 ;; ;;这是yasnippet的插件的子插件
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/popup-el-master")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/popup-el-master")
 ;; (require 'popup)
 
 
 ;; ;;==================Ace Jump Mode==============
 ;; ;; ace jump mode major function
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/ace_jump_mode/")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/ace_jump_mode/")
 ;; (autoload
 ;;   'ace-jump-mode
 ;;   "ace-jump-mode"
@@ -579,7 +584,7 @@
 
 
 ;; ;;===================flymake====================
-;; ;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/flymake")
+;; ;; (add-to-list 'load-path "~/.emacs.d/plugins/flymake")
 ;; ;; (require 'flymake)
 
 ;; ;;==================Org-mode====================
@@ -592,7 +597,7 @@
 
 
 ;; ;;================evil================
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/evil")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/evil")
 ;; (require 'evil)
 ;; (evil-mode 1)
 ;; (setq evil-default-state 'emacs)
@@ -600,14 +605,14 @@
 
 ;; ;;===============slime================
 ;; (setq inferior-lisp-program "/usr/local/lib/sbcl") ; your Lisp system
-;; (add-to-list 'load-path "/home/jinxiaohai/SoftWear/lisp/slime-master/")  ; your SLIME directory
+;; (add-to-list 'load-path "~/SoftWear/lisp/slime-master/")  ; your SLIME directory
 ;; ;;(require 'slime)
 ;; (require 'slime-autoloads)
 ;; (slime-setup '(slime-fancy))
 
 
 ;; ;;===============cscope==============
-;; (add-to-list 'load-path "/home/jinxiaohai/.emacs.d/plugins/cscope/contrib/xcscope")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/cscope/contrib/xcscope")
 ;; (require 'xcscope)
 ;; ;;这里以核原码为例，介绍Cscope的基本用法。
 ;; ;;首先，在源码根目录下，如～/kernerl/linux-2.6.29.3,利用cscope-indexer脚本生成文件
