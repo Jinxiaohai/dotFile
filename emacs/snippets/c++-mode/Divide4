@@ -1,0 +1,100 @@
+#name : #ifndef XXX; #define XXX; #endif
+# key: Divide4
+# --
+#include "TAxis.h"
+#include "TArrow.h"
+#include "TAttFill.h"
+#include "TBranch.h"
+#include "TCanvas.h"
+#include "TChain.h"
+#include "TColor.h"
+#include "TDirectory.h"
+#include "TF1.h"
+#include "TF2.h"
+#include "TFile.h"
+#include "TGraph.h"
+#include "TGraphErrors.h"
+#include "TH1.h"
+#include "TH1D.h"
+#include "TH2.h"
+#include "TH2D.h"
+#include "TH3.h"
+#include "TH3D.h"
+#include "TLatex.h"
+#include "TLeaf.h"
+#include "TLegend.h"
+#include "TLine.h"
+#include "TMarker.h"
+#include "TMath.h"
+#include "TNamed.h"
+#include "TPad.h"
+#include "TProfile.h"
+#include "TRandom.h"
+#include "TSpectrum.h"
+#include "TStyle.h"
+#include "TTree.h"
+#include "TGaxis.h"
+
+using namespace std;
+
+int `(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`()
+{
+  gStyle->SetOptStat(0);
+  gStyle->SetTitle("");
+
+
+  TCanvas *canvas = new TCanvas("canvas", "canvas",211,51,857,708);
+  canvas->SetTopMargin(0.0);
+  canvas->SetRightMargin(0.0);
+  canvas->SetBottomMargin(0.0);
+  canvas->SetLeftMargin(0.0);
+  canvas->Range(-1, -1, 1, 1);
+  canvas->cd();
+
+  TPad *pad = new TPad("pad", "pad", 0.05, 0.05, 1.0, 1.0);
+  pad->SetFillColorAlpha(0, 0);
+  pad->SetTopMargin(0.12);
+  pad->SetBottomMargin(0.12);
+  pad->SetLeftMargin(0.12);
+  pad->SetRightMargin(0.12);
+  pad->DivideSquare(4, 0, 0, 0);
+  pad->Draw("same");
+  pad->Update();
+  pad->cd();
+
+  /// first
+  pad->cd(1);
+  gPad->SetLogy();
+
+  /// second
+  pad->cd(2);
+  gPad->SetLogy();
+
+  /// third
+  pad->cd(3);
+  gPad->SetLogy();
+
+  /// fourth
+  pad->cd(4);
+  TH1D *his4 = new TH1D("his4", "his4", 100, -4, 4);
+  his4->SetTitle("");
+  his4->Draw("p same");
+
+  /// all
+  canvas->cd();
+  TGaxis *xaxis = new TGaxis(-0.825, -0.82, 1.0, -0.82, -1, 1, 507);
+  xaxis->SetLineColor(0);
+  xaxis->SetLabelSize(0);
+  xaxis->SetTitle("I am Title.");
+  xaxis->CenterTitle(true);
+  xaxis->Draw("same P");
+
+  TGaxis *yaxis = new TGaxis(-0.82, -0.825, -0.82, 1.0, -1, 1, 507, "L");
+  yaxis->SetLineColor(0);
+  yaxis->SetLabelSize(0);
+  yaxis->SetTitle("I am Title");
+  yaxis->CenterTitle(true);
+  yaxis->Draw("same P");
+
+  return 0;
+}
