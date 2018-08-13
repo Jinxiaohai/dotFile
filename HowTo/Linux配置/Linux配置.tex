@@ -1,0 +1,110 @@
+\chapter{linux配置}
+
+\section{CMake安装和常用库的CMakeLists.txt的写法}
+CMake是一个跨平台的生成工具，%
+主要使用平台无关的CMakeLists.txt生成平台相关的Makefile文件。%
+
+CMake的安装：\\
+\noindent\textbf{\color{magenta}\$ tar -zvxf cmake.tar.gz}\\
+\noindent\textbf{\color{magenta}\$ cd cmake}\\
+\noindent\textbf{\color{magenta}\$ ./configure --prefix=to/install/path -\,-qt-gui}\\
+\noindent\textbf{\color{magenta}\$ make -j4}\\
+\noindent\textbf{\color{magenta}\$ make install}\\
+
+\subsection{Boost}
+\noindent\textbf{\color{magenta}Boost库的CMakeList.txt的写法：}\\
+cmake\_minimum\_required(VERSION 3.0)\\
+
+\noindent{}set(CMAKE\_PREFIX\_PATH "/opt/boost/install")\\
+set(Boost\_USE\_STATIC\_LIBS OFF)\\
+set(Boost\_USE\_MULTITHREADED ON)\\
+set(Boost\_STATIC\_RUNTIME OFF)\\
+
+\noindent{}find\_package(Boost)\\
+include\_directories(\${Boost\_INCLUDE\_DIRS})\\
+
+\noindent{}message(STATUS \${Boost\_INCLUDE\_DIRS})\\
+message(STATUS \${Boost\_LIBRARIES})\\
+
+\noindent{}add\_subdirectory(src)\\
+其中Boost\_INCLUDE\_DIRS必须显示的添加到头文件的搜索路径中。
+
+\subsection{OpenCV}
+\noindent\textbf{\color{magenta}OpenCV库的CMakeLists.txt的写法：}
+
+注意OpenCV的库的搜索结果是放在OpenCV\_LIBS这个变量中的，%
+且头文件无需添加到搜索路径中。%
+
+\subsection{ROOT}
+\noindent\textbf{\color{magenta}ROOT库的CMakeLists.txt的写法：}
+
+注意ROOT的库的搜索结果是放在ROOT\_LIBRARIES这个变量中的，%
+且头文件无需添加到搜索路径中。%
+
+\subsection{Qt5}
+\noindent\textbf{\color{magenta}Qt5库的CMakeLists.txt的写法：}
+
+注意对于含有Q\_OBJECT宏的头文件，%
+需要使用qt5\_wrap\_cpp(MOC\_SRC \${MOC\_HEADER})进行编译，%
+对于界面文件需要使用qt5\_wrap\_ui(UIC\_SRC \${UIC\_UI})进行编译，%
+对于资源文件需要使用qt5\_add\_resources(QRC\_SRC \${QRC})进行编译，%
+最后把编译好的源文件和\*.cpp一同作为目标文件的源文件，%
+且头文件无需添加到搜索路径中。%
+库的依赖方式为target\_link\_libraries(target Qt5::Core Qt5::Widgets Qt5::Gui Qt5::其它模块)。
+
+
+
+
+
+\section{OpenCV的安装}
+这里我们主要给出Ubuntu下OpenCV的安装例子。%
+首先我们要先安装OpenCV所需要的依赖，%
+打开terminal输入以下的命令：\\
+\textbf{\color{magenta}\$ sudo apt-get -y install libopencv-dev 
+   build-essential 
+   cmake 
+   libdc1394-22 
+   libdc1394-22-dev 
+   libjpeg-dev 
+   libpng12-dev 
+   libtiff-dev 
+   libjasper-dev 
+   libavcodec-dev 
+   libavformat-dev 
+   libswscale-dev 
+   libxine-dev  
+   libgstreamer0.10-dev 
+   libgstreamer-plugins-base0.10-dev 
+   libv41-dev 
+   libtbb-dev 
+   libqt4-dev 
+   libmp3lame-dev 
+   libopencore-amrnb-dev 
+   libopencore-amrwb-dev 
+   libtheora-dev 
+   libvorbis-dev 
+   libxvidcore-dev 
+   x264 
+   v41-utils}
+
+ 接着我们从官网或者github下载自己需要版本的源代码，%
+ 并且下载opencv\_contrib的测试模块。%
+ 分别解压缩两个源代码。%
+ 
+ \noindent\textbf{\color{magenta}\$ cd opencv-版本} \\
+ \noindent\textbf{\color{magenta}\$ mkdir build} \\
+ \noindent\textbf{\color{magenta}\$ cd build} \\
+ \noindent\textbf{\color{magenta}\$ cmake -D CMAKE\_BUILD\_TYPE=RELEASE\\
+   -D CMAKE\_INSTALL\_PREFIX=/full/path/to/opencv/install/dir \\
+   -D INSTALL\_C\_EXAMPLES=ON \\
+   -D BUILD\_EXAMPLES=ON \\
+   -D OPENCV\_EXTRA\_MODULES\_PATH=/full/path/to/opencv-contrib/modules\\
+   ../} \\
+ \noindent\textbf{\color{magenta}\$ make -j4}\\
+ \noindent\textbf{\color{magenta}\$ sudo make install}
+剩下只需要修改下PATH和LD\_LIBRARY\_PATH环境变量的值。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
