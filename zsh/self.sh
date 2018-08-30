@@ -26,6 +26,15 @@ export PKG_CONFIG_PATH=$QTSYS/5.10.1/gcc_64/lib/pkgconfig:$PKG_CONFIG_PATH
 #========qtcreator============
 export PATH=$QTSYS/Tools/QtCreator/bin:$PATH
 
+# #==========qt=================
+# export QTSYS=/opt/qt5.4/install
+# export PATH=$QTSYS/5.4/gcc_64/bin:$PATH
+# export LD_LIBRARY_PATH=$QTSYS/5.4/gcc_64/lib:$LD_LIBRARY_PATH
+# export PKG_CONFIG_PATH=$QTSYS/5.4/gcc_64/lib/pkgconfig:$PKG_CONFIG_PATH
+
+# #========qtcreator============
+# export PATH=$QTSYS/Tools/QtCreator/bin:$PATH
+
 #=========cmake===============
 export CMAKESYS=/opt/cmake/install
 export PATH=$CMAKESYS/bin:$PATH
@@ -57,12 +66,12 @@ export PKG_CONFIG_PATH=$OPENCVSYS/lib64/pkgconfig:$PKG_CONFIG_PATH
 
 #==========boost==============
 export BOOSTSYS=/opt/boost/install
-export PATH=$BOOSTSYS/bin:$PATH
-export LD_LIBRARY_PATH=$BOOSTSYS/include:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$BOOSTSYS/lib:$LD_LIBRARY_PATH
 
 #===========root==============
 export ROOTSYS=/opt/root/install
 export PATH=$ROOTSYS/bin:$PATH
+export PATH=$ROOTSYS:$PATH
 export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$ROOTSYS/include:$CPLUS_INCLUDE_PATH
 
@@ -141,7 +150,7 @@ export PANDOCSYS=/opt/pandoc/install
 export PATH=$PANDOCSYS/bin:$PATH
 
 #===============self=================
-export SELFSYS=/home/xiaohai/Github/learnQT/self/install
+export SELFSYS=/opt/xiaohai
 export PATH=$SELFSYS/bin:$PATH
 
 #==============doxygen===============
@@ -152,3 +161,35 @@ export PATH=$DOXYGENSYS/bin:$PATH
 export GRAPHVIZSYS=/opt/graphviz/install
 export PATH=$GRAPHVIZSYS/bin:$PATH
 export LD_LIBRARY_PATH=$GRAPHVIZSYS/lib:$LD_LIBRARY_PATH
+
+#==============libxml2===============
+export LIBXML2SYS=/opt/libxml2/install
+export PATH=$LIBXML2SYS/bin:$PATH
+export LD_LIBRARY_PATH=$LIBXML2SYS/lib:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$LIBXML2SYS/include/libxml2:$CPLUS_INCLUDE_PATH
+export PKG_CONFIG_PATH=$LIBXML2SYS/lib/pkgconfig:$PKG_CONFIG_PATH
+
+#==============mupdf=================
+export MUPDFSYS=/opt/mupdf/install
+export PATH=$MUPDFSYS/bin:$PATH
+
+#============markdown================
+export DISCOUNTSYS=/opt/markdown/install_discount
+export PATH=$DISCOUNTSYS/bin:$PATH
+export LB_LIBRARY_PATH=$DISCOUNTSYS/lib:$LD_LIBRARY_PATH
+export C_INCLUDE_PATH=$DISCOUNTSYS/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$DISCOUNTSYS/include:$CPLUS_INCLUDE_PATH
+
+#============hoedown=================
+export HOEDOWNSYS=/opt/markdown/install_hoedown
+export C_INCLUDE_PATH=$HOEDOWNSYS/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$HOEDOWNSYS/include:$CPLUS_INCLUDE_PATH
+
+#============hunspell===============
+export LD_LIBRARY_PATH=/opt/markdown/hunspell/lib:$LD_LIBRARY_PATH
+
+#=============peg===================
+export LIBRARY_PATH=/opt/markdown/peg-markdown-highlight:$LIBRARY_PATH
+
+#===========cutemark===============
+export PATH=/opt/markdown/install_cutemake/bin:$PATH
